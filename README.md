@@ -96,3 +96,7 @@
     - string 타입 + 1(허용)
     - number 타입 + 1(허용)
     - string|number 타입 + 1(안됨)
+- 타입 확정하기 Narrowing & Assertion
+  - 꼭 지켜야할 Narrowing 문법
+  - 귀찮으면 assertion 문법
+  - console.log 해보고 싶으면 어케함
