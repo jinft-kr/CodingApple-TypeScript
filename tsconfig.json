@@ -1,0 +1,6 @@
+{
+  "complierOptions" : {
+    "target" : "ex5", // js 버전
+    "module" : "commonjs",
+  }
+}
