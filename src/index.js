@@ -66,3 +66,42 @@ var 학교 = {
 };
 학교.score[4] = false;
 학교.friend = ['Lee', 학교.teacher];
+/* 함수에 타입 지정하는 법 & void 타입*/
+function 함수2(x) {
+    return x * 2;
+}
+함수2(30);
+// void 함수
+function 함수3(x) {
+}
+function 함수4(x) {
+    // 변수? :number는 변수 :number|undefiend와 같음
+}
+function 함수5(x) {
+    //console.log(x + 3)  //error가 남. 엄격하게 타입을 명시하지 않으면 연산이 안되기 때문에
+}
+function sayHi(x) {
+    if (x) {
+        console.log('안녕하세요 ' + x);
+    }
+    else {
+        console.log('왜입력안함');
+    }
+}
+function 자릿수세기(x) {
+    return x.toString().length;
+}
+function 결혼가능하냐(money, house, charm) {
+    var score = 0;
+    score += money;
+    if (house === true) {
+        score += 500;
+    }
+    if (charm === '상') {
+        score += 100;
+    }
+    if (score >= 600) {
+        return '결혼가능';
+    }
+}
+console.log(결혼가능하냐(100, true, '상'));

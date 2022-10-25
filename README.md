@@ -85,3 +85,14 @@
 - 타입을 미리 정하기 애매할 때 (union type, any, unknown)
   - Union Type : 타입 2개 이상 합친 새로운 타입 만들기
   - Any Type : 모든 자료형 허용
+- 함수에 타입 지정하는 법 & void 타입
+  - 함수는 총 두 군데 타입지정이 가능
+    - 함수로 들어오는 자료 (파라미터)
+    - 함수에서 나가는 자료 (return)
+  - Javascript와 다른 점 : 타입 지정된 파라미터는 필수임
+  - 파라미터가 옵션일 경우 : 파라미터변수?:타입
+    - 변수? :number는 변수 :number|undefiend와 같음
+  - x :number|string 사용시 주의사항
+    - string 타입 + 1(허용)
+    - number 타입 + 1(허용)
+    - string|number 타입 + 1(안됨)
