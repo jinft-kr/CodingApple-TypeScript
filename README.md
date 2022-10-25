@@ -106,3 +106,13 @@
   - & 연산자로 object 타입 합치기 = & 연산자로 object 타입 extend하기
   - 같은 이름의 type변수 재정의 불가능
   - type 변수 작명 관습 : 첫글자는 대문자, 뒤에 Type 키워드를 붙여주면 좀 더 정확함
+- Literal Types로 만드는 const 변수 유사품
+  - literal types
+    - Literal Types : 원하는 문자만 들어오는 변수
+  - 방금배운게 const 변수 업글버전아님?
+    - literanl type 은 const와 유사하게 사용 가능하다.
+    - 다만 liternal type 쓸 경우 원하는 변수 값을 여러개 사용할 수 있다.
+  - literal type 문제점과 as const 문법
+    - as const는 효과가 2개인데 
+      - 타입을 object의 value로 바꿔줍니다. (타입을 'kim'으로 바꿔줍니다)
+      - object안에 있는 모든 속성을 readonly로 바꿔줍니다 (변경하면 에러나게)

@@ -287,3 +287,38 @@ let 회원가입정보2 :NewUser2 = {
     phone : '1234'
 }
 
+/* Literal Types로 만드는 const 변수 유사품 */
+// Literal Types : 원하는 문자만 들어오는 변수
+// 변수에 뭐가 들어올지 더 엄격하게 관리가능, 자동완성기능도 좋음
+let 이름4 : 123;
+// 이름4 = 456; 다른 변수가 들어오면 에러 발생
+
+function 함수6(a:'hello') :1 | 0{
+    return 1;
+}
+// 함수('he'); 함수에도 literal type 적용 가능
+
+function rockSciserPaper (a:'가위'|'바위'|'보') :'가위'|'바위'|'보'{
+    return '가위';
+}
+
+// const 변수의 한계
+// literanl type 은 const와 유사하게 사용 가능하다.
+
+var 자료 = {
+    name : 'kim'
+}
+function 내함수4(a:'kim'){
+
+}
+// 내함수4(자료.name); string 타입만 들어올 수 있기 때문에 type error가 남
+
+// as const 사용시 type error를 없앨 수 있음
+var 자료3 = {
+    name : 'kim'
+} as const;
+
+function 내함수5(a : 'kim') {
+
+}
+내함수5(자료3.name)
