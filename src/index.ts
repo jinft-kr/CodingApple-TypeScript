@@ -222,3 +222,68 @@ function 만들함수( x :{subject : string | string[]} ){
 }
 
 console.log( 만들함수( { subject : ['english', 'art'] }  ) )
+
+/* 타입도 변수에 담아쓰세요 type 키워드 써서 & readonly */
+type Animal = string | number | undefined; // type alias, type 변수
+let 동물 :Animal = 123;
+
+// type 변수 작명 관습 : 첫글자는 대문자, 뒤에 Type 키워드를 붙여주면 좀 더 정확함
+const 출생지역 = 'seoul'; // const : 상수
+const 출생지역2 = {region: 'seoul'}; // 오브젝트 안에 있는 변수는 바꿀 수 있음
+출생지역2.region = 'busan';
+
+const 여친 = { //typescript쓰면 object 자료 수정도 막을 수 있음
+    name : '엠버'
+}
+
+
+type GirlFriend = {
+    readonly name : string
+}
+const 여친2: GirlFriend = {
+    name :'엠버'
+}
+// 여친2.name('진이'); 실제 변환된 js 파일은 에러 안뜸. 타입스크립트 에러는 에디터&터미널에서만 존재함
+
+// type 변수 union type으로 합치기 가능
+type Name = string;
+type Age = number;
+type Person = Name | Age;
+
+// & 연산자로 object 타입 합치기 = & 연산자로 object 타입 extend하기
+type PositionX = { x: number};
+type PositionY = { y : number};
+type NewType = PositionX & PositionY;
+
+let position :NewType = {x:10, y:20};
+
+// 같은 이름의 type변수 재정의 불가능
+
+type MyType = {
+    color? : string,
+    size : number,
+    readonly position : number[]
+}
+
+let 테스트용변수 :MyType = {
+    size : 123,
+    position : [1,2,3]
+}
+
+type User2 = { name : string, email? : string, phone : number }
+let 회원가입정보 :User2 = {
+    name : 'kim',
+    phone : 123,
+}
+
+type User3 = { name : string, email? : string, phone : string }
+type Adult = { adult : boolean }
+
+type NewUser2 = User3 & Adult;
+
+let 회원가입정보2 :NewUser2 = {
+    name : 'kim',
+    adult : false,
+    phone : '1234'
+}
+

@@ -100,3 +100,9 @@
   - 꼭 지켜야할 Narrowing 문법
   - 귀찮으면 assertion 문법
   - console.log 해보고 싶으면 어케함
+- 타입도 변수에 담아쓰세요 type 키워드 써서 & readonly
+  - type alias (타입변수)
+  - object readonly 속성
+  - & 연산자로 object 타입 합치기 = & 연산자로 object 타입 extend하기
+  - 같은 이름의 type변수 재정의 불가능
+  - type 변수 작명 관습 : 첫글자는 대문자, 뒤에 Type 키워드를 붙여주면 좀 더 정확함

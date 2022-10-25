@@ -105,3 +105,77 @@ function 결혼가능하냐(money, house, charm) {
     }
 }
 console.log(결혼가능하냐(100, true, '상'));
+/* 타입 확정하기 Narrowing & Assertion */
+// Type이 아직 하나로 확정되지 않았을 경우 Type Narrowing 써야함
+// 대표적인 Narrowing 방법은 typeof 연산자
+function 내함수(x) {
+    if (typeof x === 'string') {
+        return x + 1;
+    }
+    else {
+    }
+}
+function 내함수2(x) {
+    var array = [];
+    if (typeof x === 'number') {
+        array[0] = x;
+    }
+    else {
+        //if문 썼으면 끝까지 써야 안전. else else if 안쓰면 에러로 잡아줄 수도 있음
+    }
+}
+// Narrowing 으로 판정해주는 문법들
+// typeof 변수, 속성명 in 오브젝트자료, 인스턴스 instanceof 부로
+// 그냥 현재 변수의 타입이 뭔지 특정지을 수 있기만 하면 다 인정해줌
+// assertion : 타입을 덮어쓰는 방법
+function 내함수3(x) {
+    var array = [];
+    array[0] = x; // as : assertion 문법
+    // assertion 문법의 용도
+    // 1. Narrowing할 때 씁니다.
+    // 2. 무슨 타입이 들어올지 100% 확실할 때 쓰셈(그래서 굳이 쓸 이유가 없음)
+    // 남이 짠 코드를 수정할 때, 왜 타입에러가 났는지 모르겠을 때, 비상용으로만 주로 씀
+}
+// 옛날 assertion 문법
+// let 이름 :number = 123;
+//
+// (이름 as string) + 1;  //현재문법
+// <string>이름 + 1;   //옛날문법
+function 클리닝함수(a) {
+    var 클리닝완료된거 = [];
+    a.forEach(function (b) {
+        if (typeof b === 'string') {
+            클리닝완료된거.push(parseFloat(b));
+        }
+        else {
+            클리닝완료된거.push(b);
+        }
+    });
+    return 클리닝완료된거;
+}
+console.log(클리닝함수([123, '3']));
+function 만들함수(x) {
+    if (typeof x.subject === 'string') {
+        return x.subject;
+    }
+    else if (Array.isArray(x.subject)) {
+        return x.subject[x.subject.length - 1];
+    }
+    else {
+        return '없쪄';
+    }
+}
+console.log(만들함수({ subject: ['english', 'art'] }));
+var 동물 = 123;
+// type 변수 작명 관습 : 첫글자는 대문자, 뒤에 Type 키워드를 붙여주면 좀 더 정확함
+var 출생지역 = 'seoul'; // const : 상수
+var 출생지역2 = { region: 'seoul' }; // 오브젝트 안에 있는 변수는 바꿀 수 있음
+출생지역2.region = 'busan';
+var 여친 = {
+    name: '엠버'
+};
+var 여친2 = {
+    name: '엠버'
+};
+var position = { x: 10, y: 20 };
+// 같은 이름의 type변수 재정의 불가능
