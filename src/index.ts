@@ -68,3 +68,41 @@ let project :{
     days : 30,
     started : true,
 }
+
+/* 타입을 미리 정하기 애매할 때 (union type, any, unknown) */
+// 문자 or 숫자 들어올 수 있는 변수는 어떻게 만듭니까?
+let 회원 : number | string = 123; //Union Type : 타입 2개 이상 합친 새로운 타입 만들기
+
+let 회원들 :(number|string)[] = [1,'2',3];
+let 오브잭트 :{a:string|number} = {a : '1234'};
+let 이름2 :any; // 모든 자료형 허용 -> 타입실드 해체 문법(일반 JS를 쓴다고 보면됨)
+let 이름3 :unknown; // 모든 자료형 허용 -> any랑 같은 역할
+// 그러나 any보다 안전함.
+
+//Q. 왜 타입맞는데 +1이 안되는 것?
+let 나이 :string|number;
+// 나이 +1;
+// string 타입 + 1(허용)
+// number 타입 + 1(허용)
+// string|number 타입 + 1(안됨)
+let 나이2 :unknown = 1;
+// 나이 -1; Error
+
+let user :string = 'kim';
+let age :undefined | number = undefined;
+let married :boolean = false;
+let 철수 :(string|number|undefined|boolean)[]= [user, age, married];
+
+let 학교 : {
+    score : (number|boolean)[],
+    teacher : string,
+    friend : string | string[]
+}
+
+    = {
+    score : [100, 97, 84],
+    teacher : 'Phil',
+    friend : 'John'
+}
+학교.score[4] = false;
+학교.friend = ['Lee', 학교.teacher]
