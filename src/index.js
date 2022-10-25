@@ -218,3 +218,29 @@ var 자료3 = {
 function 내함수5(a) {
 }
 내함수5(자료3.name);
+// () => { return 10;} // () => 10은 같다. block안에 한줄만 있는경우 블록 생략가능
+// 1. 함수 타입은 () => {} 모양으로
+// 2. 함수 표현식에만 type alias 사용가능
+var 함수7 = function (a) {
+    return 10;
+};
+var 회원정보 = {
+    name: 'kim',
+    age: 30,
+    plusOne: function (x) {
+        return x + 1;
+    },
+    changeName: function () {
+        console.log('안녕');
+    }
+};
+회원정보.plusOne(1);
+회원정보.changeName();
+var cutZero = function (x) {
+    var result = x.replace(/^0+/, "");
+    return result;
+};
+function removeDash(x) {
+    var result = x.replace(/-/g, "");
+    return parseFloat(result);
+}

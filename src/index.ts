@@ -322,3 +322,46 @@ function 내함수5(a : 'kim') {
 
 }
 내함수5(자료3.name)
+
+/* 함수와 methods에 type alias 지정하는 방법 */
+type 함수타입 = (a:string) => number;
+
+// () => { return 10;} // () => 10은 같다. block안에 한줄만 있는경우 블록 생략가능
+// 1. 함수 타입은 () => {} 모양으로
+// 2. 함수 표현식에만 type alias 사용가능
+let 함수7 :함수타입 = function (a){
+    return 10
+}
+
+//object 안에 함수만들 수 있음
+//object 안에 함수 타입 지정은 어떻게?
+type Member4 = {
+    name : string,
+    age : number,
+    plusOne : ( x :number ) => number,
+    changeName : () => void
+}
+
+let 회원정보:Member4 = {
+    name : 'kim',
+    age : 30,
+    plusOne (x){
+        return x + 1
+    },
+    changeName : () => {
+        console.log('안녕')
+    }
+}
+회원정보.plusOne(1);
+회원정보.changeName();
+
+type CutType = (x :string) => string
+
+let cutZero :CutType = function (x){
+    let result = x.replace(/^0+/, "");
+    return result
+}
+function removeDash(x :string) :number{
+    let result = x.replace(/-/g, "");
+    return parseFloat(result)
+}
